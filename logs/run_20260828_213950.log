@@ -1,0 +1,19 @@
+2026-08-28 21:39:51,885 | INFO | src.pipeline | Building the HR Assistant
+2026-08-28 21:39:51,886 | INFO | src.pipeline | Vector store already exists on disk, loading it
+2026-08-28 21:39:51,887 | INFO | src.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-08-28 21:39:51,888 | INFO | src.embeddings | Initializing the embeddings model 'jina-embeddings-v2-base-en'
+2026-08-28 21:39:51,888 | INFO | src.embeddings | Loaded embeddings model
+2026-08-28 21:39:51,895 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-08-28 21:39:51,897 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-08-28 21:39:51,899 | INFO | faiss.loader | Loading faiss.
+2026-08-28 21:39:51,981 | INFO | faiss.loader | Successfully loaded faiss.
+2026-08-28 21:39:52,001 | INFO | src.vector_store | Creating a retriever with top_k=3
+2026-08-28 21:39:52,008 | INFO | src.llm | Initializing LLM 'openai/gpt-oss-20b'
+2026-08-28 21:39:52,417 | INFO | src.agent | Creating HR agent with 1 tool(s)
+2026-08-28 21:39:52,436 | INFO | src.agent | HR agent is ready
+2026-08-28 21:39:52,437 | INFO | src.pipeline | HR assistant is ready to take questions
+2026-08-28 21:40:01,850 | INFO | __main__ | *** Streamlit run: new question received
+2026-08-28 21:40:01,854 | INFO | src.pipeline | User question: hello 
+2026-08-28 21:40:02,713 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-08-28 21:40:02,761 | INFO | src.pipeline | Final answer: Hello! 👋 How can I help you today? If you have any questions about HR policies—like leave, work‑from‑home, probation, or anything else—just let me know!

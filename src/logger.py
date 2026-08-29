@@ -1,0 +1,27 @@
+import logging
+import os
+from datetime import datetime
+
+LOGS_DIR = "logs"
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+_today = datetime.now().strftime("%Y-%m-%d")
+
+DAILY_LOG_DIR = os.path.join(LOGS_DIR, _today)
+os.makedirs(DAILY_LOG_DIR, exist_ok=True)
+
+# create one log file per run
+_run_started_at = datetime.now().strftime("%Y%m%d_%H%M%S")
+RUN_LOG_FILE = os.path.join(DAILY_LOG_DIR,  f"run_{_run_started_at}.log")
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    handlers=[
+        logging.FileHandler(RUN_LOG_FILE, encoding="utf-8"),
+        logging.StreamHandler(),
+    ],
+)
+
+def get_logger(name:str) -> logging.Logger:
+    return logging.getLogger(name)
