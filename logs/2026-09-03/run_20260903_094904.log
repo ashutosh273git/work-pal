@@ -1,0 +1,38 @@
+2026-09-03 09:49:06,711 | INFO | src.pipeline | Building the HR Assistant
+2026-09-03 09:49:06,712 | INFO | src.tracing | LangSmith tracing ENABLED - project 'HR ASSISTANT', traces at https://smith.langchain.com
+2026-09-03 09:49:06,713 | INFO | src.pipeline | Vector store already exists on disk, loading it
+2026-09-03 09:49:06,713 | INFO | src.vector_store | Loading FAISS index from 'data\faiss_index'
+2026-09-03 09:49:06,713 | INFO | src.embeddings | Initializing the embeddings model 'jina-embeddings-v2-base-en'
+2026-09-03 09:49:06,714 | INFO | src.embeddings | Loaded embeddings model
+2026-09-03 09:49:06,718 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-03 09:49:06,718 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-03 09:49:06,719 | INFO | faiss.loader | Loading faiss.
+2026-09-03 09:49:07,477 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-03 09:49:07,537 | INFO | src.vector_store | Creating a retriever with top_k=3
+2026-09-03 09:49:07,540 | INFO | src.llm | Initializing LLM 'openai/gpt-oss-20b'
+2026-09-03 09:49:07,844 | INFO | src.agent | Creating HR agent with 1 tool(s)
+2026-09-03 09:49:07,864 | INFO | src.agent | HR agent is ready
+2026-09-03 09:49:07,864 | INFO | src.pipeline | HR assistant is ready to take questions
+2026-09-03 09:51:27,029 | INFO | __main__ | *** Streamlit run: new question received
+2026-09-03 09:51:27,032 | INFO | src.pipeline | User question: whats your job
+2026-09-03 09:51:28,142 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-03 09:51:28,191 | INFO | src.pipeline | Final answer: I’m sorry, but I don’t have that information.
+2026-09-03 09:51:57,301 | INFO | __main__ | *** Streamlit run: new question received
+2026-09-03 09:51:57,303 | INFO | src.pipeline | User question: tell me about hoolidays
+2026-09-03 09:51:57,801 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-03 09:51:57,811 | INFO | src.tools | search_hr_policy called with query: holidays
+2026-09-03 09:51:58,800 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-03 09:51:59,363 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-03 09:51:59,374 | INFO | src.pipeline | Final answer: **Company Holidays**
+
+| Item | Details |
+|------|---------|
+| **Public Holidays** | 12 official public holidays each year (as listed in the HR‑published holiday calendar). |
+| **Compensation for Working on a Holiday** | Employees who work on a public holiday are eligible for compensatory leave. |
+| **Annual Paid Leave** | 20 days of paid annual leave per calendar year for full‑time employees. |
+| **Leave Request Timing** | Submit requests via the HR portal at least **5 working days** in advance. |
+| **Carry‑Forward** | Unused annual leave can be carried forward to the next year, but only up to **5 days**. |
+| **Sick Leave** | Separate from annual leave: 10 paid sick days per year. A medical certificate is required for sick leave longer than 2 consecutive days. |
+
+If you need the exact dates for this year’s public holidays or have any other questions, let me know!
