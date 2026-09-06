@@ -13,6 +13,7 @@ from src.vector_store import(
 from src.tools import create_search_tool
 from src.logger import get_logger
 from src.tracing import check_langsmith_tracing
+from src.guardrails import REFUSAL_MESSSAGE, check_input, check_output
 
 logger =  get_logger(__name__)
 
@@ -54,9 +55,18 @@ def build_hr_assistant(file_path: str = config.DATA_FILE_PATH):
 def ask(agent, question: str) -> str:
     """Ask the agent a question and
     return its final answer as plain text."""
-
     logger.info("User question: %s", question)
+
+    input_safe, _ = check_input(question)
+    if not input_safe:
+        return REFUSAL_MESSSAGE
+    
     response = agent.invoke({"messages": [{"role": "user", "content": question}]})
     answer = response["messages"][-1].content
     logger.info("Final answer: %s", answer)
+
+    output_safe, _ = check_output(answer)
+    if not output_safe:
+        return REFUSAL_MESSSAGE 
+
     return answer
