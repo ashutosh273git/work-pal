@@ -1,0 +1,77 @@
+2026-09-07 19:30:22,051 | INFO | src.pipeline | Building the HR Assistant
+2026-09-07 19:30:22,052 | INFO | src.tracing | LangSmith tracing ENABLED - project 'HR ASSISTANT', traces at https://smith.langchain.com
+2026-09-07 19:30:22,698 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 19:30:23,086 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/exists "HTTP/1.1 200 OK"
+2026-09-07 19:30:23,089 | INFO | src.pipeline | No Qdrant Cloud collection found, building one from scratch
+2026-09-07 19:30:23,145 | INFO | src.document_loader | Loaded 1 documents
+2026-09-07 19:30:23,145 | INFO | src.splitter | Splitting documents into chunks
+2026-09-07 19:30:23,146 | INFO | src.splitter | Split document(s) into 9 chunk(s)
+2026-09-07 19:30:23,148 | INFO | src.vector_store | Embeddingg 9 chunks and uploading to Qdrant collection 'hr_assistant' ...
+2026-09-07 19:30:23,148 | INFO | src.embeddings | Initializing the embeddings model 'jina-embeddings-v2-base-en'
+2026-09-07 19:30:23,149 | INFO | src.embeddings | Loaded embeddings model
+2026-09-07 19:30:23,708 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/exists "HTTP/1.1 200 OK"
+2026-09-07 19:30:23,709 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-07 19:30:26,548 | INFO | httpx | HTTP Request: PUT https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant "HTTP/1.1 200 OK"
+2026-09-07 19:30:27,733 | INFO | httpx | HTTP Request: PUT https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points?wait=true "HTTP/1.1 200 OK"
+2026-09-07 19:30:27,737 | INFO | src.vector_store | Uploaded to Qdrant collection 'hr_assistant'
+2026-09-07 19:30:27,738 | INFO | src.vector_store | Creating a retriever with top_k=3
+2026-09-07 19:30:27,742 | INFO | src.llm | Initializing LLM 'openai/gpt-oss-20b'
+2026-09-07 19:30:27,819 | INFO | src.agent | Creating HR agent with 1 tool(s)
+2026-09-07 19:30:27,872 | INFO | src.agent | HR agent is ready
+2026-09-07 19:30:27,873 | INFO | src.pipeline | HR assistant is ready to take questions
+2026-09-08 06:37:59,110 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-09-08 06:38:00,085 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-09-08 06:38:00,106 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-09-08 06:38:00,125 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-09-08 06:38:00,151 | ERROR | asyncio | Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ashut\AppData\Roaming\uv\python\cpython-3.14.2-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-09-08 10:18:42,683 | INFO | __main__ | *** Streamlit run: new question received
+2026-09-08 10:18:42,697 | INFO | src.pipeline | User question: hi
+2026-09-08 10:18:43,555 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 10:18:44,214 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-08 10:18:44,225 | INFO | src.pipeline | Final answer: Hello! 👋 How can I help you today?
+2026-09-08 10:18:44,481 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
