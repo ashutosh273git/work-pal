@@ -9,3 +9,5 @@ qdrant-client
 jupyter
 ipykernel
 streamlit
+portkey_ai
+langchain-openai
