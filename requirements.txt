@@ -11,3 +11,4 @@ ipykernel
 streamlit
 portkey_ai
 langchain-openai
+openevals

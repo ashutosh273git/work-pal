@@ -1,0 +1,169 @@
+2026-09-20 11:22:03,235 | INFO | src.evaluation | Creating dataset 'hr-assistant-qna' with 10 example(s)
+2026-09-20 11:22:04,591 | INFO | src.pipeline | Building the HR Assistant
+2026-09-20 11:22:04,592 | INFO | src.tracing | LangSmith tracing ENABLED - project 'HR ASSISTANT', traces at https://smith.langchain.com
+2026-09-20 11:22:05,212 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/exists "HTTP/1.1 200 OK"
+2026-09-20 11:22:05,226 | INFO | src.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-20 11:22:05,228 | INFO | src.vector_store | Connecting to existing Qdrant collection 'hr_assistant'
+2026-09-20 11:22:05,230 | INFO | src.embeddings | Initializing the embeddings model 'jina-embeddings-v2-base-en'
+2026-09-20 11:22:05,233 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-20 11:22:05,233 | INFO | src.embeddings | Loaded embeddings model
+2026-09-20 11:22:05,740 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant "HTTP/1.1 200 OK"
+2026-09-20 11:22:05,756 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-20 11:22:11,977 | INFO | src.vector_store | Creating a retriever with top_k=3
+2026-09-20 11:22:11,985 | INFO | src.llm | Initializing LLM via PORTKEY
+2026-09-20 11:22:11,986 | INFO | src.gateway | Routing LLM calls through Portkey (provider=@hr-assistant)
+2026-09-20 11:22:14,231 | INFO | src.agent | Creating HR agent with 1 tool(s)
+2026-09-20 11:22:14,295 | INFO | src.agent | HR agent is ready
+2026-09-20 11:22:14,296 | INFO | src.pipeline | HR assistant is ready to take questions
+2026-09-20 11:22:14,296 | INFO | src.vector_store | Connecting to existing Qdrant collection 'hr_assistant'
+2026-09-20 11:22:14,297 | INFO | src.embeddings | Initializing the embeddings model 'jina-embeddings-v2-base-en'
+2026-09-20 11:22:14,297 | INFO | src.embeddings | Loaded embeddings model
+2026-09-20 11:22:14,841 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant "HTTP/1.1 200 OK"
+2026-09-20 11:22:14,944 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-20 11:22:22,654 | INFO | src.vector_store | Creating a retriever with top_k=3
+2026-09-20 11:22:22,659 | INFO | src.evaluation | Running evaluation against dataset 'hr-assistant-qna'
+2026-09-20 11:22:26,570 | INFO | src.pipeline | User question: How many paid sick days do I get per year?
+2026-09-20 11:22:26,874 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:29,529 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:29,569 | INFO | src.tools | search_hr_policy called with query: How many paid sick days do I get per year?
+2026-09-20 11:22:38,136 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:22:38,143 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:22:38,720 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:38,733 | INFO | src.pipeline | Final answer: You’re entitled to **10 paid sick days per year**. If you need to take sick leave longer than two consecutive days, just make sure to submit a medical certificate. If you have any other questions about leave or anything else, let me know!
+2026-09-20 11:22:39,094 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:47,482 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:22:48,197 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:49,169 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:49,194 | INFO | src.pipeline | User question: What is the notice period during probation?
+2026-09-20 11:22:49,489 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:50,008 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:50,018 | INFO | src.tools | search_hr_policy called with query: notice period during probation
+2026-09-20 11:22:51,090 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:22:51,097 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:22:51,587 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:51,594 | INFO | src.pipeline | Final answer: During the probation period, the notice period is **15 days**.
+2026-09-20 11:22:51,932 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:57,527 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:22:58,213 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:59,023 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:59,048 | INFO | src.pipeline | User question: How many days of unused annual leave can be carried forward?
+2026-09-20 11:22:59,341 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:59,816 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:22:59,835 | INFO | src.tools | search_hr_policy called with query: How many days of unused annual leave can be carried forward?
+2026-09-20 11:23:06,619 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:06,632 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:23:07,234 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:07,247 | INFO | src.pipeline | Final answer: According to the company’s leave policy, you can carry forward **up to a maximum of 5 days of unused annual leave** into the next calendar year.
+2026-09-20 11:23:07,617 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:08,602 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:09,266 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:09,984 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:10,018 | INFO | src.pipeline | User question: What is the standard notice period for resignation?
+2026-09-20 11:23:10,268 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:10,488 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:10,499 | INFO | src.tools | search_hr_policy called with query: standard notice period for resignation
+2026-09-20 11:23:11,165 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:11,171 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:23:11,697 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:11,707 | INFO | src.pipeline | Final answer: The standard notice period for resignation is **30 days**.  
+If you are still within the probation period, the notice period is reduced to **15 days**.
+2026-09-20 11:23:11,980 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:21,457 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:22,307 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:23,109 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:23,131 | INFO | src.pipeline | User question: How long is the probation period?
+2026-09-20 11:23:23,399 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:23,941 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:23,967 | INFO | src.tools | search_hr_policy called with query: probation period
+2026-09-20 11:23:29,889 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:29,899 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:23:30,483 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:30,502 | INFO | src.pipeline | Final answer: The probation period for all new employees is **three (3) months** from their date of joining.
+2026-09-20 11:23:30,756 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:34,828 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:35,724 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:36,468 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:36,487 | INFO | src.pipeline | User question: How many days of paid annual leave do I get per year?
+2026-09-20 11:23:36,756 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:36,956 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:36,966 | INFO | src.tools | search_hr_policy called with query: How many days of paid annual leave do I get per year?
+2026-09-20 11:23:37,920 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:37,926 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:23:38,450 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:38,456 | INFO | src.pipeline | Final answer: You’re entitled to **20 days of paid annual leave per calendar year**. Unused days can be carried over to the next year, but only up to 5 days.
+2026-09-20 11:23:38,717 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:47,750 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:48,471 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:48,555 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:23:48,556 | INFO | openai._base_client | Retrying request to /chat/completions in 4.000000 seconds
+2026-09-20 11:23:53,448 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:53,463 | INFO | src.pipeline | User question: How many days per week can I work from home?
+2026-09-20 11:23:53,749 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:53,815 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:23:53,817 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-09-20 11:23:57,281 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:23:57,301 | INFO | src.tools | search_hr_policy called with query: How many days per week can I work from home?
+2026-09-20 11:23:58,305 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:23:58,316 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:23:58,383 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:23:58,385 | INFO | openai._base_client | Retrying request to /chat/completions in 2.000000 seconds
+2026-09-20 11:24:00,897 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:00,911 | INFO | src.pipeline | Final answer: According to the company’s Work‑From‑Home policy, employees may work from home **up to 2 days per week** (subject to manager approval). If you’re considering a fully remote arrangement, you’ll need written approval from the department head.
+2026-09-20 11:24:02,022 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:11,354 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:24:12,300 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:12,414 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:12,417 | INFO | openai._base_client | Retrying request to /chat/completions in 4.000000 seconds
+2026-09-20 11:24:17,062 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:17,082 | INFO | src.pipeline | User question: Within how many days must reimbursement claims be submitted?
+2026-09-20 11:24:17,356 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:17,426 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:17,427 | INFO | openai._base_client | Retrying request to /chat/completions in 4.000000 seconds
+2026-09-20 11:24:21,918 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:21,937 | INFO | src.tools | search_hr_policy called with query: Within how many days must reimbursement claims be submitted?
+2026-09-20 11:24:27,511 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:24:27,519 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:24:28,061 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:28,070 | INFO | src.pipeline | Final answer: Reimbursement claims must be submitted within **30 days** of the expense.
+2026-09-20 11:24:28,332 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:31,459 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:24:32,085 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:32,162 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:32,164 | INFO | openai._base_client | Retrying request to /chat/completions in 5.000000 seconds
+2026-09-20 11:24:38,852 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:38,892 | INFO | src.pipeline | User question: Within how many days is full and final settlement processed after the last working day?
+2026-09-20 11:24:40,232 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:40,767 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:40,791 | INFO | src.tools | search_hr_policy called with query: full and final settlement processed after the last working day days
+2026-09-20 11:24:41,777 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:24:41,793 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:24:42,275 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:42,281 | INFO | src.pipeline | Final answer: Full and final settlement is processed within **45 days** of the employee’s last working day.
+2026-09-20 11:24:42,490 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:43,479 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:24:43,561 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:43,562 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-09-20 11:24:47,192 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:47,299 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:47,300 | INFO | openai._base_client | Retrying request to /chat/completions in 4.000000 seconds
+2026-09-20 11:24:51,361 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:51,362 | INFO | openai._base_client | Retrying request to /chat/completions in 2.000000 seconds
+2026-09-20 11:24:54,058 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:54,073 | INFO | src.pipeline | User question: How many public holidays does the company observe each year?
+2026-09-20 11:24:54,366 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:54,443 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:54,444 | INFO | openai._base_client | Retrying request to /chat/completions in 2.000000 seconds
+2026-09-20 11:24:57,240 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:24:57,255 | INFO | src.tools | search_hr_policy called with query: How many public holidays does the company observe each year?
+2026-09-20 11:24:58,245 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:24:58,253 | INFO | src.tools | Found 3 matching chunk(s)
+2026-09-20 11:24:58,321 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:24:58,322 | INFO | openai._base_client | Retrying request to /chat/completions in 3.000000 seconds
+2026-09-20 11:25:01,840 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:25:01,851 | INFO | src.pipeline | Final answer: The company observes **12 public holidays every year**.
+2026-09-20 11:25:02,674 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:25:07,516 | INFO | httpx | HTTP Request: POST https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/points/query "HTTP/1.1 200 OK"
+2026-09-20 11:25:08,433 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-20 11:25:08,511 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-09-20 11:25:08,512 | INFO | openai._base_client | Retrying request to /chat/completions in 7.000000 seconds
+2026-09-20 11:25:16,240 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
