@@ -1,0 +1,22 @@
+2026-09-22 10:27:04,724 | INFO | src.pipeline | Building the HR Assistant
+2026-09-22 10:27:04,724 | INFO | src.tracing | LangSmith tracing ENABLED - project 'HR ASSISTANT', traces at https://smith.langchain.com
+2026-09-22 10:27:05,278 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant/exists "HTTP/1.1 200 OK"
+2026-09-22 10:27:05,280 | INFO | src.pipeline | Qdrant Cloud collection already exists, reusing it
+2026-09-22 10:27:05,280 | INFO | src.vector_store | Connecting to existing Qdrant collection 'hr_assistant'
+2026-09-22 10:27:05,280 | INFO | src.embeddings | Initializing the embeddings model 'jina-embeddings-v2-base-en'
+2026-09-22 10:27:05,281 | INFO | src.embeddings | Loaded embeddings model
+2026-09-22 10:27:05,284 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-22 10:27:05,778 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333 "HTTP/1.1 200 OK"
+2026-09-22 10:27:05,803 | INFO | httpx | HTTP Request: GET https://4d73c1a7-7cb5-47df-8af5-1d090b5f01d4.eu-west-1-0.aws.cloud.qdrant.io:6333/collections/hr_assistant "HTTP/1.1 200 OK"
+2026-09-22 10:27:06,900 | INFO | src.vector_store | Creating a retriever with top_k=3
+2026-09-22 10:27:06,902 | INFO | src.llm | Initializing LLM via PORTKEY
+2026-09-22 10:27:06,902 | INFO | src.gateway | Routing LLM calls through Portkey (provider=@hr-assistant)
+2026-09-22 10:27:07,572 | INFO | src.agent | Creating HR agent with 1 tool(s)
+2026-09-22 10:27:07,597 | INFO | src.agent | HR agent is ready
+2026-09-22 10:27:07,597 | INFO | src.pipeline | HR assistant is ready to take questions
+2026-09-22 10:27:14,223 | INFO | __main__ | *** Streamlit run: new question received
+2026-09-22 10:27:14,227 | INFO | src.pipeline | User question: hello 
+2026-09-22 10:27:14,736 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-22 10:27:15,682 | INFO | httpx | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-22 10:27:15,711 | INFO | src.pipeline | Final answer: Hello! 👋 How can I help you with any HR questions today?
+2026-09-22 10:27:15,944 | INFO | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
